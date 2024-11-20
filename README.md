@@ -2,7 +2,7 @@
 A feature-rich e-commerce web application built using React, providing an interactive shopping experience with cart management and product details.
 
 # Live link
-https://react-product-catalog-flax.vercel.app/cart
+https://react-product-catalog-flax.vercel.app
 
 
 
