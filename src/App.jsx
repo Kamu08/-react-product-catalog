@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
 import Cart from "./components/Cart";
 import NavBar from "./components/Navbar";
 
@@ -57,7 +56,7 @@ function App() {
 
 	return (
 		<Router>
-      <NavBar  cart={cart}/>
+			<NavBar cart={cart} />
 			<Routes>
 				<Route path='/' element={<Home addToCart={addToCart} />} />
 				<Route
@@ -71,10 +70,6 @@ function App() {
 							getTotalPrice={getTotalPrice}
 						/>
 					}
-				/>
-				<Route
-					path='/product/:productID'
-					element={<ProductDetail addToCart={addToCart} />}
 				/>
 			</Routes>
 		</Router>
