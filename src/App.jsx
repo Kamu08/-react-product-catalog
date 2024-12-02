@@ -10,19 +10,24 @@ function App() {
 
 	// Add to Cart Function
 	const addToCart = (product) => {
+		console.log("Adding to cart:", product); // Debugging log
 		setCart((prevCart) => {
 			const existingItem = prevCart.find((item) => item.id === product.id);
 			if (existingItem) {
+				console.log("Product exists in cart. Incrementing quantity."); // Debugging log
 				return prevCart.map((item) =>
 					item.id === product.id
 						? { ...item, quantity: item.quantity + 1 }
 						: item
 				);
 			} else {
+				console.log("Product does not exist in cart. Adding new item."); // Debugging log
 				return [...prevCart, { ...product, quantity: 1 }];
 			}
 		});
+		console.log("Updated cart:", cart); // Debugging log (may show stale state due to async nature of state updates)
 	};
+	
 
 	// Remove from Cart Function
 	const removeFromCart = (id) => {

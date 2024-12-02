@@ -1,7 +1,17 @@
 import React from "react";
 
-const ProductModal = ({ product, onClose, handleAddToCart }) => {
+const ProductModal = ({ product, onClose, addToCart }) => {
   if (!product) return null;
+
+  const handleAddToCart = () => {
+    if (product && addToCart) {
+        console.log("Modal: Adding product to cart", product); // Debugging log
+        addToCart(product);
+    } else {
+        console.error("addToCart function or product is undefined");
+    }
+};
+
 
   return (
     <div
@@ -36,7 +46,7 @@ const ProductModal = ({ product, onClose, handleAddToCart }) => {
         {/* Add to Cart Button */}
         <div className="flex justify-center">
           <button
-            onClick={() => handleAddToCart(product)}
+            onClick={handleAddToCart}
             className="bg-violet-900 text-white px-6 py-2 rounded-md hover:bg-violet-700 transition duration-200"
           >
             Add to Cart
