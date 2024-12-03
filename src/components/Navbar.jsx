@@ -9,7 +9,7 @@ const NavBar = ({ cart = [] }) => {
 				{/* Logo Section */}
 				<Link to="/">
 					<h3 className="font-black">
-						MERA<span className="text-orange-500">KEN</span>
+						FBTAdventures India <span className="text-orange-500">Pvt Ltd</span>
 					</h3>
 				</Link>
 

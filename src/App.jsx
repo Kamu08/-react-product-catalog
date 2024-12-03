@@ -7,6 +7,9 @@ import NavBar from "./components/Navbar";
 function App() {
 	// Cart state
 	const [cart, setCart] = useState([]);
+	const [promocode, setPromocode] = useState("");
+	const [discount, setDiscount] = useState(0);
+	const [invalid, setInvalid] = useState("");
 
 	// Add to Cart Function
 	const addToCart = (product) => {
@@ -27,7 +30,15 @@ function App() {
 		});
 		console.log("Updated cart:", cart); // Debugging log (may show stale state due to async nature of state updates)
 	};
-	
+
+	const applyPromocode = () => {
+		if (promocode === "DISCOUNT10") {
+			setDiscount(getTotalPrice() * 0.1); // 10% discount
+			setInvalid("Promo code applied successfully!");
+		} else {
+			setInvalid("Invalid promo code");
+		}
+	};
 
 	// Remove from Cart Function
 	const removeFromCart = (id) => {
@@ -73,6 +84,11 @@ function App() {
 							handleInc={incrementQuantity}
 							handleDec={decrementQuantity}
 							getTotalPrice={getTotalPrice}
+							applyPromocode={applyPromocode}
+							promocode={promocode}
+							setPromocode={setPromocode}
+							invalid={invalid}
+							discount={discount}
 						/>
 					}
 				/>
